@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  zonos:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: zonos_container
+    stdin_open: true
+    tty: true
+    ports:
+      - "7860:7860"
+    command: ["python3", "gradio_interface.py"]
+    environment:
+      - GRADIO_SHARE=False
